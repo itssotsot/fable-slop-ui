@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-type="software">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="page-type" content="software" />
+    <meta name="site-kind" content="software" />
+    <meta name="description" content="Fable Slop UI: React interface elements you can copy into any site. One file each, styles included, no dependencies beyond React." />
+    <title>Fable Slop UI: React elements to copy into your site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet" />
+    <script>
+      // Set the theme before first paint so the page never flashes the wrong one.
+      try {
+        // The theme is a time of day: 0 morning, 1 noon, 2 afternoon, 3 evening (the dark one).
+        var saved = localStorage.getItem("fable-slop-theme");
+        var phase = ["morning", "noon", "afternoon", "evening"].indexOf(saved);
+        if (phase < 0) phase = saved === "dark" || (!saved && matchMedia("(prefers-color-scheme: dark)").matches) ? 3 : 0;
+        document.documentElement.dataset.phase = phase;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
